@@ -15,6 +15,10 @@ from flask import Flask
 app = Flask(__name__)
 CORS(app) # <-- YENİ EKLENEN SATIR
 
+@app.route('/')
+def home():
+    return send_file('login.html')  # login.html dosyan doğru yerde olmalı
+    
 if __name__ == "__main__":
     import os
     port = int(os.environ.get("PORT", 8080))
