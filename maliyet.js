@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         exportButton.addEventListener('click', () => {
             const selectedCustomer = localStorage.getItem('selectedCustomer');
             const userForFilename = isAdmin && selectedCustomer ? selectedCustomer : loggedInUser;
-            window.location.href = `http://127.0.0.1:5000/api/costs/export?customer=${encodeURIComponent(userForFilename)}`;
+            window.location.href = `https://abcd1234.ngrok.io:5000/api/costs/export?customer=${encodeURIComponent(userForFilename)}`;
         });
     }
 
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
         tableBody.innerHTML = `<tr><td colspan="${desiredHeaderOrder.length}">Veriler yükleniyor...</td></tr>`;
 
         try {
-            const response = await fetch('http://127.0.0.1:5000/api/costs');
+            const response = await fetch('https://abcd1234.ngrok.io:5000/api/costs');
             const data = await response.json();
             if (!response.ok || data.error) throw new Error(data.error || 'Veri alınamadı.');
 
@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const altKalem = row.querySelector('td[data-column="Alt Kalem / Açıklama"]').textContent;
         if (!confirm(`'${altKalem}' kaydını silmek istediğinize emin misiniz? (Veri kaybolmaz, gizlenir)`)) return;
         try {
-            const response = await fetch('http://127.0.0.1:5000/api/costs', {
+            const response = await fetch('https://abcd1234.ngrok.io:5000/api/costs', {
                 method: 'DELETE',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ id: costId, admin_username: loggedInUser })
@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         
         try {
-            const response = await fetch('http://127.0.0.1:5000/api/costs', {
+            const response = await fetch('https://abcd1234.ngrok.io:5000/api/costs', {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -216,7 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
         addCostMessage.style.color = '#3498db';
 
         try {
-            const response = await fetch('http://127.0.0.1:5000/api/costs', {
+            const response = await fetch('https://abcd1234.ngrok.io:5000/api/costs', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
