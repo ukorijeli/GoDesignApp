@@ -19,7 +19,7 @@ async function fetchAndDisplayCostSummary() {
     const headerRemaining = document.getElementById('header-remaining');
 
     try {
-        const response = await fetch('http://127.0.0.1:5000/api/costs/summary');
+        const response = await fetch('https://abcd1234.ngrok.io:5000/api/costs/summary');
         const data = await response.json();
 
         if (!response.ok) {
