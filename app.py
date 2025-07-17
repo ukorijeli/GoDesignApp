@@ -15,12 +15,6 @@ from flask import Flask
 app = Flask(__name__)
 CORS(app) # <-- YENİ EKLENEN SATIR
 
-@app.route('/')
-def login():
-    with open("login.html", "r", encoding="utf-8") as f:
-        html = f.read()
-    return Response(html, mimetype='text/html')
-
 if __name__ == "__main__":
     import os
     port = int(os.environ.get("PORT", 8080))
