@@ -779,5 +779,9 @@ def add_cost_entry():
         db.session.rollback()
         return jsonify({'error': f"Kayıt eklenirken bir hata oluştu: {str(e)}"}), 500
         
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    app.run(
+        host="0.0.0.0",                        # dış erişime açmak için
+        port=int(os.environ.get("PORT", 5000)),  # Render'ın verdiği portu kullanmak için
+        debug=False                           # prod ortamda kapalı olsun
+    )
