@@ -673,7 +673,7 @@ def get_gorseller(customer_username):
         'filename': g.filename,
         'file_type': g.file_type,
         'caption': g.caption,
-        'url': f'https://ac5e2745f52a.ngrok-free.app:5000/static/uploads/{g.filename}' # <-- DEĞİŞİKLİK BURADA
+        'url': f'https://godesign-api.onrender.com/static/uploads/{g.filename}' # <-- DEĞİŞİKLİK BURADA
     } for g in gorseller_from_db]
     return jsonify(gorseller_list)
 
