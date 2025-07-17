@@ -1,5 +1,5 @@
-pip install Flask
-pip install Flask-SQLAlchemy
-pip install pandas
-pip install openpyxl
-pip install Werkzeug
+Flask
+Flask-SQLAlchemy
+pandas
+openpyxl
+Werkzeug
