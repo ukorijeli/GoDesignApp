@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     async function loadGorseller() {
         galleryGrid.innerHTML = '<p>Görseller yükleniyor...</p>';
         try {
-            const response = await fetch(`https://abcd1234.ngrok.io:5000/api/gorseller/${customerForGallery}`);
+            const response = await fetch(`https://ac5e2745f52a.ngrok-free.app:5000/api/gorseller/${customerForGallery}`);
             if (!response.ok) throw new Error('Görseller yüklenemedi.');
             
             const gorseller = await response.json();
