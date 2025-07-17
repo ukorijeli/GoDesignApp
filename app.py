@@ -15,16 +15,6 @@ from flask import Flask
 app = Flask(__name__)
 CORS(app) # <-- YENİ EKLENEN SATIR
 
-@app.route('/')
-def home():
-    return send_file('login.html')  # login.html dosyan doğru yerde olmalı
-    
-if __name__ == "__main__":
-    import os
-    port = int(os.environ.get("PORT", 8080))
-    app.run(host="0.0.0.0", port=port)
-
-
 # --- Veritabanı Yapılandırması ---
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'site.db')
