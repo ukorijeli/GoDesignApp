@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     async function loadGorseller() {
         galleryGrid.innerHTML = '<p>Görseller yükleniyor...</p>';
         try {
-            const response = await fetch(`http://127.0.0.1:5000/api/gorseller/${customerForGallery}`);
+            const response = await fetch(`https://abcd1234.ngrok.io:5000/api/gorseller/${customerForGallery}`);
             if (!response.ok) throw new Error('Görseller yüklenemedi.');
             
             const gorseller = await response.json();
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         uploadMessage.style.color = '#3498db';
 
         try {
-            const response = await fetch('http://127.0.0.1:5000/api/gorseller', {
+            const response = await fetch('https://abcd1234.ngrok.io:5000/api/gorseller', {
                 method: 'POST',
                 body: formData,
             });
@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (!confirm('Bu görseli kalıcı olarak silmek istediğinize emin misiniz?')) return;
 
         try {
-            const response = await fetch(`http://127.0.0.1:5000/api/gorseller/${gorselId}`, {
+            const response = await fetch(`https://abcd1234.ngrok.io:5000/api/gorseller/${gorselId}`, {
                 method: 'DELETE',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ admin_username: loggedInUser })
