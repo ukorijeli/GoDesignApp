@@ -139,7 +139,7 @@
                 taskDetailTitle.textContent = decodeURIComponent(taskName) + " Detayları";
 
                 // YENİ: Excel indirme butonunun linkini ayarla ve görünür yap
-                exportExcelBtn.href = `https://ac5e2745f52a.ngrok-free.app:5000/api/tasks/${taskId}/export`;
+                exportExcelBtn.href = `https://godesign-api.onrender.com/api/tasks/${taskId}/export`;
                 exportExcelBtn.style.display = 'inline-block';
 
                 if (isAdmin) {
@@ -162,7 +162,7 @@
             const isAdmin = localStorage.getItem('isAdmin') === 'true';
             subTasksBody.innerHTML = `<tr><td colspan="${isAdmin ? 8 : 7}">Alt görevler yükleniyor...</td></tr>`;
             try {
-                const response = await fetch(`https://ac5e2745f52a.ngrok-free.app:5000/api/subtasks/${taskId}`);
+                const response = await fetch(`https://godesign-api.onrender.com/api/subtasks/${taskId}`);
                 if (!response.ok) throw new Error('Alt görevler API\'den alınamadı.');
                 const currentSubTasks = await response.json();
                 if (currentSubTasks && currentSubTasks.length > 0) {
@@ -240,7 +240,7 @@
             });
             if (!isValid) { alert('Lütfen tüm alanları geçerli şekilde doldurun.'); return; }
             try {
-                const response = await fetch(`https://ac5e2745f52a.ngrok-free.app:5000/api/subtasks/${subtaskId}`, {
+                const response = await fetch(`https://godesign-api.onrender.com/api/subtasks/${subtaskId}`, {
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(updatedData)
@@ -269,7 +269,7 @@
                 }
                 const subtaskData = { username: loggedInUser, task_id: taskId, name, binaIci, binaDisi, sozlesme, yapilan, gerekenGun };
                 try {
-                    const response = await fetch('https://ac5e2745f52a.ngrok-free.app:5000/api/subtasks', {
+                    const response = await fetch('https://godesign-api.onrender.com/api/subtasks', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(subtaskData)
@@ -284,7 +284,7 @@
         }
         async function deleteSubtask(subtaskId) {
             try {
-                const response = await fetch(`https://ac5e2745f52a.ngrok-free.app:5000/api/subtasks/${subtaskId}`, {
+                const response = await fetch(`https://godesign-api.onrender.com/api/subtasks/${subtaskId}`, {
                     method: 'DELETE',
                     headers: { 'X-Requested-By-Username': localStorage.getItem('loggedInUser') }
                 });
