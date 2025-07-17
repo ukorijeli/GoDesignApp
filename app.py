@@ -9,9 +9,19 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import openpyxl
 from openpyxl.styles import Font
 from sqlalchemy import func 
+import os
+from flask import Flask
 
 app = Flask(__name__)
 CORS(app) # <-- YENİ EKLENEN SATIR
+@app.route('/')
+def home():
+    return 'Merhaba, Railway!'
+
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))  # Railway için önemli
+    app.run(host='0.0.0.0', port=port)
+
 
 # --- Veritabanı Yapılandırması ---
 basedir = os.path.abspath(os.path.dirname(__file__))
