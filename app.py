@@ -14,9 +14,6 @@ from flask import Flask
 
 app = Flask(__name__)
 CORS(app) # <-- YENİ EKLENEN SATIR
-@app.route('/')
-def home():
-    return 'Merhaba, Railway!'
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))  # Railway için önemli
