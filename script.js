@@ -163,7 +163,7 @@ if (jobStatusChart && taskListSection) {
 
                 if (userToFetch) {
 
-                    window.location.href = `https://abcd1234.ngrok.io:5000/api/export-all/${userToFetch}`;
+                    window.location.href = `https://ac5e2745f52a.ngrok-free.app:5000/api/export-all/${userToFetch}`;
 
                 } else {
 
@@ -265,7 +265,7 @@ if (jobStatusChart && taskListSection) {
 
             try {
 
-                const response = await fetch('https://abcd1234.ngrok.io:5000/api/tasks', {
+                const response = await fetch('https://ac5e2745f52a.ngrok-free.app:5000/api/tasks', {
 
                     method: 'POST',
 
@@ -327,7 +327,7 @@ if (jobStatusChart && taskListSection) {
 
         try {
 
-            const response = await fetch(`https://abcd1234.ngrok.io:5000/api/tasks/${userToFetch}`);
+            const response = await fetch(`https://ac5e2745f52a.ngrok-free.app:5000/api/tasks/${userToFetch}`);
 
             if (!response.ok) throw new Error('Görevler yüklenemedi');
 
@@ -465,7 +465,7 @@ async function updatePaymentChart() {
 
         console.log("Adım 3: try bloğuna girildi. API'ye istek hazırlanıyor.");
 
-        const url = `https://abcd1234.ngrok.io:5000/api/costs/summary?v=${new Date().getTime()}`;
+        const url = `https://ac5e2745f52a.ngrok-free.app:5000/api/costs/summary?v=${new Date().getTime()}`;
 
         console.log("Adım 4: API'ye istek gönderiliyor: " + url);
 
